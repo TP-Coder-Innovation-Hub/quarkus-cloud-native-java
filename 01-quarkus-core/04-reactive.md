@@ -4,7 +4,14 @@
 
 Quarkus is built on a reactive core (Vert.x) but does not force you to write reactive code. The key is knowing when each model is appropriate.
 
-> 🖼️ **[IMAGE_PLACEHOLDER]** — reactive vs imperative decision tree I/O-bound CPU-bound
+```mermaid
+flowchart TD
+    Start[What kind of workload?] --> Q1{I/O-bound?}
+    Q1 -->|Yes| Q2{High concurrency needed?}
+    Q2 -->|Yes| RX[Use Reactive\nMutiny + Vert.x]
+    Q2 -->|No| IMP1[Use Imperative\nRESTEasy Classic]
+    Q1 -->|CPU-bound| IMP2[Use Imperative\nSimple and direct]
+```
 
 ## Mutiny Core Types
 

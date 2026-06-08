@@ -14,7 +14,17 @@ A typical Spring Boot application in a Kubernetes pod:
 
 Cloud platforms bill by memory-seconds and CPU-seconds. A service idling at 300 MB serving 10 requests per minute wastes money. A service taking 12 seconds to start cannot respond to traffic spikes in time.
 
-> 🖼️ **[IMAGE_PLACEHOLDER]** — JVM cloud problem cold start memory container auto-scaling
+```mermaid
+graph LR
+    subgraph "Traditional JVM in Container"
+        S1["Scale up trigger"] --> JVM1["JVM starts\n~2-5 seconds"]
+        JVM1 --> APP1["App ready\n~500MB RAM"]
+    end
+    subgraph "Quarkus Native"
+        S2["Scale up trigger"] --> NAT["Native binary\n~10-30ms"]
+        NAT --> APP2["App ready\n~30MB RAM"]
+    end
+```
 
 The JVM's design assumptions -- long-running processes, JIT warm-up periods, generous heap allocation -- are at odds with ephemeral, auto-scaling container workloads.
 
@@ -47,6 +57,18 @@ Quarkus combines all three into a unified framework. The results:
 
 This moves Java from "too heavy for serverless" to "competitive with Go" on cloud-native metrics.
 
-> 🖼️ **[IMAGE_PLACEHOLDER]** — traditional JVM vs Quarkus native startup time memory comparison
+```mermaid
+graph LR
+    subgraph "JVM Mode"
+        JM1["Startup: ~2-5s"]
+        JM2["Memory: ~300-500MB"]
+        JM3["Throughput: High (warmed up)"]
+    end
+    subgraph "Native Mode"
+        NM1["Startup: ~10-30ms"]
+        NM2["Memory: ~30-50MB"]
+        NM3["Throughput: Good (limited JIT)"]
+    end
+```
 
 Next: [The Quarkus Approach](02-quarkus-approach.md)

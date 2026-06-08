@@ -43,7 +43,16 @@ public class PaymentClient {
 - `@Fallback`: Call `fallbackPayment` when all retries fail or circuit is open.
 - `@Timeout`: Fail if the call exceeds 3 seconds.
 
-> 🖼️ **[IMAGE_PLACEHOLDER]** — fault tolerance layer retry circuit breaker fallback timeout stacking
+```mermaid
+flowchart TD
+    REQ[Request] --> TO[Timeout: 2s max]
+    TO --> RT[Retry: 3 attempts]
+    RT --> CB[Circuit Breaker: 50% threshold]
+    CB --> FB[Fallback: return cache]
+    RT -->|success| RES[Response]
+    CB -->|closed| RES
+    FB --> RES
+```
 
 ### Step 3: Configure
 

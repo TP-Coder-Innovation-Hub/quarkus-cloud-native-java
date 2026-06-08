@@ -10,7 +10,19 @@ In traditional frameworks (Spring, Jakarta EE), the application JAR contains met
 
 Quarkus moves the vast majority of this work to the build phase.
 
-> 🖼️ **[IMAGE_PLACEHOLDER]** — Quarkus build-time processing vs traditional runtime scanning
+```mermaid
+flowchart LR
+    subgraph "Traditional Framework"
+        R1["Runtime"] --> R2["Scan annotations"]
+        R2 --> R3["Build metadata"]
+        R3 --> R4["Start app"]
+    end
+    subgraph "Quarkus"
+        B1["Build Time"] --> B2["Process annotations"]
+        B2 --> B3["Generate bytecode"]
+        B3 --> B4["Runtime: just run"]
+    end
+```
 
 ## What Moves to Build Time
 
