@@ -1,91 +1,85 @@
 # AGENTS.md
 
-Context and guidelines for AI coding assistants working in this Quarkus Cloud-Native Java learning path repository.
+Context and guidelines for AI coding assistants working in this repository.
 
 ## Context
 
-This repository contains educational content and hands-on code modules for learning Quarkus, a cloud-native Java framework. The content targets Java developers transitioning from traditional Java (Spring Boot, Jakarta EE) to cloud-native development with Quarkus 3.x. All content must be technically accurate for Quarkus 3.x as of 2026.
+Educational content for learning Quarkus, a cloud-native Java framework. Targets Java developers transitioning from Spring Boot or Jakarta EE. All content must be accurate for Quarkus 3.x as of 2026.
 
 ## Audience
 
-- Java developers with 1--5+ years of experience.
-- Familiar with core Java, Maven or Gradle, and basic Spring or Jakarta EE concepts.
-- Learning cloud-native concepts: containers, Kubernetes, serverless, reactive programming.
-- Skill levels: Entry (new to cloud-native), Mid (some experience), Senior (architectural decisions).
+- Java developers with 1--5+ years experience.
+- Familiar with core Java, Maven, and basic Spring or Jakarta EE concepts.
+- Skill levels: `[Entry]` (new to cloud-native), `[Mid]` (some experience), `[Senior]` (architectural decisions).
 
 ## How to Help
 
-- Write Quarkus 3.x code using current APIs and defaults. RESTEasy Reactive is the default REST implementation (not classic RESTEasy). Use `@Path`, `@GET`, `@POST` JAX-RS annotations.
-- Use Mutiny (`io.smallrye.mutiny.Uni`, `io.smallrye.mutiny.Multi`) for reactive code. Do not use Project Reactor or RxJava unless specifically discussing interoperability.
-- Use Hibernate ORM with Panache (`PanacheEntity`, `PanacheRepository`) for database access patterns. Show both Active Record and Repository patterns where appropriate.
-- For native image builds, assume GraalVM for JDK 21 or Mandrel. Use `@RegisterForReflection` for reflection registration in examples.
-- Use Dev Services for test infrastructure. Do not require manual Docker Compose setup for examples.
-- Include both JVM mode and native mode instructions where relevant.
-- Use Maven as the primary build tool unless the user specifies Gradle. Standard Quarkus Maven project structure.
-- Tag content difficulty with `[Entry]`, `[Mid]`, or `[Senior]` badges in Markdown headers or paragraphs.
-- Provide complete, runnable code examples. No pseudocode or partial snippets that cannot compile.
-- When explaining concepts, relate to Spring Boot equivalents where it helps comprehension (e.g., "Panache Entity is similar to Spring Data JPA's `JpaRepository`").
-- Use Mermaid diagrams for architecture, flowcharts, and decision trees.
-- Test instructions should use `mvn quarkus:dev` for dev mode and `mvn test` for running tests.
+- Write Quarkus 3.x code. RESTEasy Reactive is the default REST layer. Use JAX-RS annotations (`@Path`, `@GET`, `@POST`).
+- Use Mutiny (`Uni`, `Multi`) for reactive code. Not Reactor or RxJava.
+- Use Hibernate ORM with Panache for database access. Show both Active Record and Repository patterns.
+- For native builds, assume GraalVM for JDK 21 or Mandrel. Use `@RegisterForReflection` for reflection.
+- Use Dev Services for test infrastructure. No manual Docker Compose.
+- Use Maven as primary build tool.
+- Tag content with `[Entry]`, `[Mid]`, or `[Senior]` badges.
+- Provide complete, runnable code. No pseudocode or partial snippets.
+- Relate to Spring Boot equivalents when it helps comprehension.
+- Use Mermaid diagrams for architecture and decision trees.
 
 ## How NOT to Help
 
-- Do not use Spring Boot annotations (`@RestController`, `@RequestMapping`, `@Service`, `@Repository`, `@Value`, `@ComponentScan`) in Quarkus code examples. Use CDI and JAX-RS equivalents.
-- Do not reference Quarkus 1.x or 2.x APIs. If uncertain about whether an API is current, verify against Quarkus 3.x documentation.
-- Do not assume runtime classpath scanning or runtime bean discovery works the same as Spring. Quarkus resolves beans at build time.
-- Do not use `spring-boot-starter-*` dependencies or Spring auto-configuration patterns.
-- Do not recommend using Project Reactor (`Mono`, `Flux`) or RxJava as primary reactive types. Mutiny is the Quarkus standard.
-- Do not provide native image build instructions without mentioning reflection constraints and `@RegisterForReflection`.
-- Do not skip Dev Services when showing test examples. Tests should leverage automatic container provisioning.
-- Do not use emojis in documentation or code comments. This repository uses plain text formatting only.
-- Do not generate placeholder content, TODO comments, or stub implementations. All code must be complete and functional.
-- Do not mix reactive and imperative paradigms in a single code example unless explicitly demonstrating interoperability.
+- Do not use Spring annotations (`@RestController`, `@RequestMapping`, `@Service`, `@Value`, `@ComponentScan`).
+- Do not reference Quarkus 1.x or 2.x APIs.
+- Do not assume runtime classpath scanning works like Spring. Quarkus resolves beans at build time.
+- Do not recommend Reactor (`Mono`, `Flux`) or RxJava as primary reactive types.
+- Do not provide native image instructions without mentioning reflection constraints.
+- Do not skip Dev Services in test examples.
+- Do not use emojis.
+- Do not generate placeholder content, TODO comments, or stubs.
+- Do not mix reactive and imperative paradigms unless demonstrating interoperability.
 
 ## Key Concepts
 
-- **Build-time processing:** Quarkus shifts annotation scanning, bean discovery, route registration, and configuration resolution from runtime to build time. This is the core architectural difference from traditional Java frameworks.
-- **RESTEasy Reactive:** Default REST layer in Quarkus 3.x. Uses JAX-RS annotations but runs on Vert.x. Supports both blocking (worker threads) and non-blocking (event loop) execution models.
-- **Mutiny:** Event-driven reactive programming library. `Uni<T>` for single-result async operations, `Multi<T>` for streams. Uses `.onItem()`, `.onFailure()`, `.onItem().transform()` chains.
-- **Panache:** ORM abstraction over Hibernate. Active Record pattern (`extends PanacheEntity`) or Repository pattern (`extends PanacheRepository<T>`). Simplifies common CRUD operations.
-- **GraalVM Native Image:** Ahead-of-time compilation to standalone native executable. Requires reflection registration via `@RegisterForReflection` or extension-provided metadata. Use Mandrel for Quarkus-optimized builds.
-- **Dev Services:** Automatic container provisioning for development and testing. PostgreSQL, Kafka, Redis, Keycloak, and many other services start automatically in dev and test modes.
-- **ArC:** Quarkus's CDI implementation. Build-time bean discovery. Uses `@ApplicationScoped`, `@RequestScoped`, `@Dependent`, `@SessionScoped`. No runtime component scanning.
-- **Quarkus Extensions:** Modular add-ons that integrate libraries with Quarkus's build-time processing. Each extension provides annotation processing, native image metadata, and Dev Services integration. Searchable at `https://code.quarkus.io/`.
+- **Build-time processing:** Annotation scanning, bean discovery, route registration, config resolution happen at build time.
+- **RESTEasy Reactive:** Default REST layer. JAX-RS annotations on Vert.x. Supports blocking and non-blocking.
+- **Mutiny:** `Uni<T>` for single async results, `Multi<T>` for streams. Chains: `.onItem()`, `.onFailure()`, `.onItem().transform()`.
+- **Panache:** ORM over Hibernate. Active Record (`extends PanacheEntity`) or Repository (`extends PanacheRepository<T>`).
+- **GraalVM Native Image:** AOT compilation. Requires `@RegisterForReflection` or extension metadata.
+- **Dev Services:** Auto container provisioning for dev/test. PostgreSQL, Kafka, Redis, Keycloak, etc.
+- **ArC:** Quarkus CDI implementation. Build-time bean discovery. Scopes: `@ApplicationScoped`, `@RequestScoped`, `@Dependent`.
 
 ## Quarkus Guidelines 2026
 
-- **Quarkus version:** 3.x (latest stable). RESTEasy Reactive is default. Classic RESTEasy is legacy.
-- **Java version:** JDK 21 (LTS). GraalVM for JDK 21 or Mandrel for native compilation.
-- **Build tools:** Maven (primary) or Gradle. Use Quarkus Maven plugin for dev mode (`quarkus:dev`) and native builds (`-Dnative`).
-- **Configuration:** `application.properties` (primary) or `application.yml`. Use `@ConfigProperty` for injection, not `@Value`.
-- **Testing:** JUnit 5 with Quarkus Test (`@QuarkusTest`). Use `@TestHTTPResource` or `RestAssured` for endpoint testing. Dev Services provide test databases automatically.
-- **Dependency injection:** CDI-based. Use `@Inject`, `@Produces`, `@ApplicationScoped`. No `@Autowired`, no `@Component`.
-- **REST:** JAX-RS annotations. `@Path`, `@GET`, `@POST`, `@PUT`, `@DELETE`, `@Produces`, `@Consumes`. Use `Response` or return types directly.
-- **Reactive:** Mutiny only. `Uni<T>` and `Multi<T>`. No Reactor, no RxJava as primary types.
-- **Database:** Hibernate ORM + Panache. Use Dev Services for automatic PostgreSQL in dev/test.
-- **Native builds:** `mvn package -Dnative` or `mvn package -Dnative -Dquarkus.native.container-build=true`. Always address reflection constraints.
+- **Version:** 3.x (latest stable). RESTEasy Reactive is default.
+- **Java:** JDK 21 (LTS). GraalVM for JDK 21 or Mandrel.
+- **Build:** Maven primary. `quarkus:dev` for dev mode, `-Dnative` for native builds.
+- **Config:** `application.properties` or `application.yml`. `@ConfigProperty` for injection.
+- **Testing:** JUnit 5, `@QuarkusTest`, RestAssured. Dev Services for test databases.
+- **DI:** CDI. `@Inject`, `@Produces`, `@ApplicationScoped`. No `@Autowired`, no `@Component`.
+- **REST:** JAX-RS. `@Path`, `@GET`, `@POST`, `@PUT`, `@DELETE`, `@Produces`, `@Consumes`.
+- **Reactive:** Mutiny only. `Uni<T>` and `Multi<T>`.
+- **Database:** Hibernate ORM + Panache. Dev Services for PostgreSQL.
+- **Native:** `mvn package -Dnative` or `-Dquarkus.native.container-build=true`.
 
 ## Repository Structure
 
 ```
 quarkus-cloud-native-java/
-├── README.md                  # This fundamentals guide
-├── AGENTS.md                  # AI assistant guidelines (this file)
-├── modules/
-│   ├── 01-first-microservice/  # Project setup, REST, DI, config
-│   ├── 02-data-access/         # Hibernate ORM, Panache, migrations
-│   ├── 03-reactive/            # Mutiny, Uni, Multi, reactive streams
-│   ├── 04-native-deployment/   # GraalVM, native image, Docker, K8s
-│   ├── 05-observability/       # Health, metrics, tracing, resilience
-│   └── 06-event-driven/        # Kafka, reactive messaging, event sourcing
-└── exercises/
-    ├── challenges/             # Practice exercises per module
-    └── solutions/              # Reference solutions
+├── README.md
+├── AGENTS.md
+├── 00-foundations/
+│   ├── 01-why-cloud-native-java.md
+│   └── 02-quarkus-approach.md
+├── 01-quarkus-core/
+│   ├── 01-dev-mode.md
+│   ├── 02-rest-api.md
+│   ├── 03-database.md
+│   ├── 04-reactive.md
+│   └── 05-dependency-injection.md
+├── 02-native-and-cloud/
+│   ├── 01-graalvm-native.md
+│   ├── 02-containerization.md
+│   ├── 03-microservice-patterns.md
+│   └── 04-observability.md
+└── 03-capstone/
+    └── README.md
 ```
-
-Each module directory should contain:
-- `README.md` -- Module guide with explanations, code examples, and exercises.
-- `src/` -- Complete, runnable Quarkus project (Maven structure).
-- `src/main/java/` -- Java source code.
-- `src/main/resources/` -- `application.properties`, native image configs.
-- `src/test/java/` -- Test classes using `@QuarkusTest`.
