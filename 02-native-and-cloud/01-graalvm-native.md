@@ -1,8 +1,10 @@
 # GraalVM Native Image
 
-`[Mid]`
+``
 
 Native image compilation makes Quarkus competitive with Go and Rust on cloud-native metrics. It compiles your Java application into a standalone native executable requiring no JVM.
+
+> 🖼️ **[IMAGE_PLACEHOLDER]** — JVM mode vs GraalVM native image startup memory binary comparison
 
 ## What You Get
 

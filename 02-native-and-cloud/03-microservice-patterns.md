@@ -1,6 +1,6 @@
 # Microservice Patterns with MicroProfile
 
-`[Mid]` `[Senior]`
+`` ``
 
 Quarkus implements MicroProfile specifications through SmallRye, providing fault tolerance, health checks, and metrics out of the box.
 
@@ -42,6 +42,8 @@ public class PaymentClient {
 - `@CircuitBreaker`: Open the circuit after 10 calls with 50%+ failure rate. Stay open 5 seconds before half-open.
 - `@Fallback`: Call `fallbackPayment` when all retries fail or circuit is open.
 - `@Timeout`: Fail if the call exceeds 3 seconds.
+
+> 🖼️ **[IMAGE_PLACEHOLDER]** — fault tolerance layer retry circuit breaker fallback timeout stacking
 
 ### Step 3: Configure
 

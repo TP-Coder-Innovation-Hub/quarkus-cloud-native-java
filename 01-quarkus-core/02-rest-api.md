@@ -1,6 +1,6 @@
 # Building REST APIs with RESTEasy Reactive
 
-`[Entry]`
+``
 
 RESTEasy Reactive is the default REST implementation in Quarkus 3.x. Standard JAX-RS annotations on Vert.x. Supports both blocking and non-blocking execution.
 

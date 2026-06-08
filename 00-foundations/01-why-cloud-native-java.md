@@ -1,6 +1,6 @@
 # Why Cloud-Native Java
 
-`[Entry]` `[Mid]`
+`` ``
 
 ## The JVM's Cloud Problem
 
@@ -13,6 +13,8 @@ A typical Spring Boot application in a Kubernetes pod:
 - **Scaling latency:** When a horizontal pod autoscaler fires, each new pod pays that startup cost. Users feel timeouts.
 
 Cloud platforms bill by memory-seconds and CPU-seconds. A service idling at 300 MB serving 10 requests per minute wastes money. A service taking 12 seconds to start cannot respond to traffic spikes in time.
+
+> 🖼️ **[IMAGE_PLACEHOLDER]** — JVM cloud problem cold start memory container auto-scaling
 
 The JVM's design assumptions -- long-running processes, JIT warm-up periods, generous heap allocation -- are at odds with ephemeral, auto-scaling container workloads.
 
@@ -44,5 +46,7 @@ Quarkus combines all three into a unified framework. The results:
 | Memory (idle) | 200--500 MB | 50--120 MB | 30--80 MB |
 
 This moves Java from "too heavy for serverless" to "competitive with Go" on cloud-native metrics.
+
+> 🖼️ **[IMAGE_PLACEHOLDER]** — traditional JVM vs Quarkus native startup time memory comparison
 
 Next: [The Quarkus Approach](02-quarkus-approach.md)

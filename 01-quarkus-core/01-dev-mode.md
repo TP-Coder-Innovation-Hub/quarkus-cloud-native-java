@@ -1,6 +1,6 @@
 # Dev Mode: The Developer Experience
 
-`[Entry]`
+``
 
 Quarkus dev mode (`mvn quarkus:dev`) is not hot-redeploy bolted onto a framework. It is a continuous build-and-reload loop integrated with the build-time processing pipeline.
 

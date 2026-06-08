@@ -1,8 +1,10 @@
 # Reactive Programming with Mutiny
 
-`[Mid]`
+``
 
 Quarkus is built on a reactive core (Vert.x) but does not force you to write reactive code. The key is knowing when each model is appropriate.
+
+> 🖼️ **[IMAGE_PLACEHOLDER]** — reactive vs imperative decision tree I/O-bound CPU-bound
 
 ## Mutiny Core Types
 

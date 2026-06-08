@@ -1,6 +1,6 @@
 # Containerization
 
-`[Mid]`
+``
 
 Quarkus builds optimized container images with minimal configuration. The resulting images are small, fast to start, and use minimal resources.
 

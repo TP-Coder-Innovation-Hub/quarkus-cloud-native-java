@@ -10,7 +10,7 @@ Educational content for learning Quarkus, a cloud-native Java framework. Targets
 
 - Java developers with 1--5+ years experience.
 - Familiar with core Java, Maven, and basic Spring or Jakarta EE concepts.
-- Skill levels: `[Entry]` (new to cloud-native), `[Mid]` (some experience), `[Senior]` (architectural decisions).
+- Skill levels: `` (new to cloud-native), `` (some experience), `` (architectural decisions).
 
 ## How to Help
 
@@ -20,7 +20,7 @@ Educational content for learning Quarkus, a cloud-native Java framework. Targets
 - For native builds, assume GraalVM for JDK 21 or Mandrel. Use `@RegisterForReflection` for reflection.
 - Use Dev Services for test infrastructure. No manual Docker Compose.
 - Use Maven as primary build tool.
-- Tag content with `[Entry]`, `[Mid]`, or `[Senior]` badges.
+- Tag content with ``, ``, or `` badges.
 - Provide complete, runnable code. No pseudocode or partial snippets.
 - Relate to Spring Boot equivalents when it helps comprehension.
 - Use Mermaid diagrams for architecture and decision trees.

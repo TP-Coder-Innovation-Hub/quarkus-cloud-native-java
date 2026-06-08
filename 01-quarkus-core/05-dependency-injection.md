@@ -1,6 +1,6 @@
 # Dependency Injection in Quarkus
 
-`[Entry]`
+``
 
 Quarkus uses ArC, a CDI-based (Contexts and Dependency Injection) implementation with build-time bean resolution. This is fundamentally different from Spring's runtime component scanning.
 

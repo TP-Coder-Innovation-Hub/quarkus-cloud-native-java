@@ -1,6 +1,6 @@
 # Database Access with Panache
 
-`[Entry]` `[Mid]`
+`` ``
 
 Panache is Quarkus's ORM layer over Hibernate. It eliminates JPA boilerplate with the Active Record or Repository pattern.
 

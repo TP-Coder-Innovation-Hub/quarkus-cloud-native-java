@@ -1,6 +1,6 @@
 # The Quarkus Approach: Build-Time Processing
 
-`[Entry]`
+``
 
 ## The Core Idea
 
@@ -9,6 +9,8 @@ The single most important concept in Quarkus: shift framework work from runtime 
 In traditional frameworks (Spring, Jakarta EE), the application JAR contains metadata -- annotations, XML, properties -- that must be scanned and resolved every time the application starts. This happens at runtime, in every deployment, on every restart.
 
 Quarkus moves the vast majority of this work to the build phase.
+
+> 🖼️ **[IMAGE_PLACEHOLDER]** — Quarkus build-time processing vs traditional runtime scanning
 
 ## What Moves to Build Time
 

@@ -1,6 +1,6 @@
 # Observability
 
-`[Senior]`
+``
 
 Production Quarkus services need three things: metrics to know what is happening, traces to know where time is spent, and health endpoints to tell the platform if the service is alive.
 
