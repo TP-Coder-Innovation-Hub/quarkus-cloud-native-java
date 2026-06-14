@@ -1,4 +1,4 @@
-# Capstone Design: Online Grocery Fulfillment Platform
+# Workshop Design: Online Grocery Fulfillment Platform
 
 > Companion to [01-capstone-spec.md](./01-capstone-spec.md). Diagrams, contracts, schemas — code organization is the learner's call.
 
