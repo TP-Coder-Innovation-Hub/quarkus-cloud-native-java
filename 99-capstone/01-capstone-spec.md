@@ -1,4 +1,4 @@
-# Capstone: Online Grocery Fulfillment Platform
+# Workshop: Online Grocery Fulfillment Platform
 
 Build a cloud-native grocery fulfillment system with 4 Quarkus microservices, Kafka event streaming, and native image compilation.
 
