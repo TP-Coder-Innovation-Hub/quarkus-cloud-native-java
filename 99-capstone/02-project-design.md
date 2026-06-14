@@ -112,7 +112,7 @@ graph TB
     NOT --- PG4
 ```
 
-No API gateway in this capstone (unlike a Spring Cloud stack) — clients address services by port; Docker Compose network is the boundary. All Kafka channels are SmallRye `@Incoming`/`@Outgoing`.
+No API gateway in this workshop (unlike a Spring Cloud stack) — clients address services by port; Docker Compose network is the boundary. All Kafka channels are SmallRye `@Incoming`/`@Outgoing`.
 
 ### 1.4 Activity Diagram — Order Fulfillment (primary business process)
 
