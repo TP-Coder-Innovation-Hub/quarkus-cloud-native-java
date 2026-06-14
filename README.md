@@ -13,7 +13,7 @@ A hands-on learning path for building cloud-native applications with Quarkus 3.x
 | 00 | [Foundations](00-foundations/) | Entry | Why the JVM struggles in the cloud and how Quarkus solves it |
 | 01 | [Quarkus Core](01-quarkus-core/) | Entry -- Mid | Dev mode, REST APIs, database access, reactive programming, DI |
 | 02 | [Native & Cloud](02-native-and-cloud/) | Mid -- Senior | GraalVM native image, containers, microservice patterns, observability |
-| 03 | [Capstone](03-capstone/) | Mid -- Senior | Build and deploy a cloud-native API with native compilation |
+| 03 | [Workshop](03-workshop/) | Mid -- Senior | Build and deploy a cloud-native API with native compilation |
 
 ### 00-foundations/
 
