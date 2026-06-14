@@ -1,6 +1,6 @@
 # Workshop Design: Online Grocery Fulfillment Platform
 
-> Companion to [01-capstone-spec.md](./01-capstone-spec.md). Diagrams, contracts, schemas — code organization is the learner's call.
+> Companion to [01-workshop-spec.md](./01-workshop-spec.md). Diagrams, contracts, schemas — code organization is the learner's call.
 
 ## Design Notes (read first)
 
