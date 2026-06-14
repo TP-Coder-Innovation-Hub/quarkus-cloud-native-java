@@ -80,6 +80,6 @@ quarkus-cloud-native-java/
 │   ├── 02-containerization.md
 │   ├── 03-microservice-patterns.md
 │   └── 04-observability.md
-└── 03-capstone/
+└── 03-workshop/
     └── README.md
 ```
