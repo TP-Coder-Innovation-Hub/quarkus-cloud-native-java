@@ -138,4 +138,4 @@ GET /q/health/started  - Startup: has init completed?
 
 Configure all three and you have full production observability. Metrics tell you what happened. Traces tell you where time was spent. Health checks tell the platform whether to route traffic.
 
-Previous: [Microservice Patterns](03-microservice-patterns.md) | Next: [Capstone](../03-capstone/README.md)
+Previous: [Microservice Patterns](03-microservice-patterns.md) | Next: [Workshop](../03-workshop/README.md)
